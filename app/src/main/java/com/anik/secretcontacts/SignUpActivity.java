@@ -94,7 +94,7 @@ public class SignUpActivity extends AppCompatActivity {
             loading.show();
 
 
-            StringRequest stringRequest=new StringRequest(Request.Method.POST, MyKey.SIGNUP_URL, new Response.Listener<String>() {
+            StringRequest stringRequest=new StringRequest(Request.Method.POST, Constant.SIGNUP_URL, new Response.Listener<String>() {
                 @Override
                 public void onResponse(String response) {
 
@@ -136,9 +136,9 @@ public class SignUpActivity extends AppCompatActivity {
                     Map<String, String> params = new HashMap<>();
                     //Adding parameters to request
 
-                    params.put(MyKey.KEY_NAME, name);
-                    params.put(MyKey.KEY_CELL, cell);
-                    params.put(MyKey.KEY_PASSWORD, password);
+                    params.put(Constant.KEY_NAME, name);
+                    params.put(Constant.KEY_CELL, cell);
+                    params.put(Constant.KEY_PASSWORD, password);
 
 
                     Log.d("info",""+name+" "+cell);

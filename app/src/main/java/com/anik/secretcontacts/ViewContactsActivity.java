@@ -65,8 +65,8 @@ public class ViewContactsActivity extends AppCompatActivity {
 
         //Fetching cell from shared preferences
         SharedPreferences sharedPreferences;
-        sharedPreferences =getSharedPreferences(MyKey.SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        getCell = sharedPreferences.getString(MyKey.CELL_SHARED_PREF, "Not Available");
+        sharedPreferences =getSharedPreferences(Constant.SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        getCell = sharedPreferences.getString(Constant.CELL_SHARED_PREF, "Not Available");
 
         //Log
         Log.d("SP_CELL",getCell);
@@ -112,7 +112,7 @@ public class ViewContactsActivity extends AppCompatActivity {
         loading.setMessage("Please wait....");
         loading.show();
 
-        String URL = MyKey.CONTACT_VIEW_URL+getCell+"&text="+text;
+        String URL = Constant.CONTACT_VIEW_URL+getCell+"&text="+text;
 
         StringRequest stringRequest = new StringRequest(URL, new Response.Listener<String>() {
             @Override
@@ -143,7 +143,7 @@ public class ViewContactsActivity extends AppCompatActivity {
         ArrayList<HashMap<String, String>> list = new ArrayList<HashMap<String, String>>();
         try {
             jsonObject = new JSONObject(response);
-            JSONArray result = jsonObject.getJSONArray(MyKey.JSON_ARRAY);
+            JSONArray result = jsonObject.getJSONArray(Constant.JSON_ARRAY);
 
 
             if (result.length()==0)
@@ -160,10 +160,10 @@ public class ViewContactsActivity extends AppCompatActivity {
 
                 for (int i = 0; i < result.length(); i++) {
                     JSONObject jo = result.getJSONObject(i);
-                    String id = jo.getString(MyKey.KEY_ID);
-                    String name = jo.getString(MyKey.KEY_NAME);
-                    String cell = jo.getString(MyKey.KEY_CELL);
-                    String email = jo.getString(MyKey.KEY_EMAIL);
+                    String id = jo.getString(Constant.KEY_ID);
+                    String name = jo.getString(Constant.KEY_NAME);
+                    String cell = jo.getString(Constant.KEY_CELL);
+                    String email = jo.getString(Constant.KEY_EMAIL);
 
                     //insert data into array for put extra
                     userID[i] = id;
@@ -173,9 +173,9 @@ public class ViewContactsActivity extends AppCompatActivity {
 
                     //put value into Hashmap
                     HashMap<String, String> user_data = new HashMap<>();
-                    user_data.put(MyKey.KEY_NAME, name);
-                    user_data.put(MyKey.KEY_CELL, cell);
-                    user_data.put(MyKey.KEY_EMAIL, email);
+                    user_data.put(Constant.KEY_NAME, name);
+                    user_data.put(Constant.KEY_CELL, cell);
+                    user_data.put(Constant.KEY_EMAIL, email);
 
                     list.add(user_data);
                 }
@@ -186,7 +186,7 @@ public class ViewContactsActivity extends AppCompatActivity {
 
         ListAdapter adapter = new SimpleAdapter(
                 ViewContactsActivity.this, list, R.layout.contact_list_items,
-                new String[]{MyKey.KEY_NAME, MyKey.KEY_CELL,MyKey.KEY_EMAIL},
+                new String[]{Constant.KEY_NAME, Constant.KEY_CELL, Constant.KEY_EMAIL},
                 new int[]{R.id.txt_name, R.id.txt_cell,R.id.txt_email});
         CustomList.setAdapter(adapter);
 

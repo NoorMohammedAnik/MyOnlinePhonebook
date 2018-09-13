@@ -1,6 +1,6 @@
 package com.anik.secretcontacts;
 
-public class MyKey {
+public class Constant {
 
 
 

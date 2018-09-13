@@ -181,7 +181,7 @@ public class ContactsDetailsActivity extends AppCompatActivity {
             loading.setMessage("Please wait....");
             loading.show();
 
-            String URL = MyKey.UPDATE_URL;
+            String URL = Constant.UPDATE_URL;
 
 
             //Creating a string request
@@ -244,10 +244,10 @@ public class ContactsDetailsActivity extends AppCompatActivity {
                     Map<String, String> params = new HashMap<>();
                     //Adding parameters to request
 
-                    params.put(MyKey.KEY_ID, getID);
-                    params.put(MyKey.KEY_NAME, name);
-                    params.put(MyKey.KEY_CELL, cell);
-                    params.put(MyKey.KEY_EMAIL, email);
+                    params.put(Constant.KEY_ID, getID);
+                    params.put(Constant.KEY_NAME, name);
+                    params.put(Constant.KEY_CELL, cell);
+                    params.put(Constant.KEY_EMAIL, email);
 
 
                     Log.d("ID", getID);
@@ -274,7 +274,7 @@ public class ContactsDetailsActivity extends AppCompatActivity {
         loading.setMessage("Please wait....");
         loading.show();
 
-        String URL = MyKey.DELETE_URL;
+        String URL = Constant.DELETE_URL;
 
 
         //Creating a string request
@@ -337,7 +337,7 @@ public class ContactsDetailsActivity extends AppCompatActivity {
                 Map<String, String> params = new HashMap<>();
                 //Adding parameters to request
 
-                params.put(MyKey.KEY_ID, getID);
+                params.put(Constant.KEY_ID, getID);
 
                 Log.d("ID", getID);
 

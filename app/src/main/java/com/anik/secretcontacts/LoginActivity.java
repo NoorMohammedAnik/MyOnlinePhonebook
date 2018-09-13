@@ -102,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
             loading.show();
 
             //Creating a string request
-            StringRequest stringRequest = new StringRequest(Request.Method.POST, MyKey.LOGIN_URL,
+            StringRequest stringRequest = new StringRequest(Request.Method.POST, Constant.LOGIN_URL,
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
@@ -112,12 +112,12 @@ public class LoginActivity extends AppCompatActivity {
                             if (response.equals("success")) {
                                 //Creating a shared preference
 
-                                SharedPreferences sp = LoginActivity.this.getSharedPreferences(MyKey.SHARED_PREF_NAME, Context.MODE_PRIVATE);
+                                SharedPreferences sp = LoginActivity.this.getSharedPreferences(Constant.SHARED_PREF_NAME, Context.MODE_PRIVATE);
 
                                 //Creating editor to store values to shared preferences
                                 SharedPreferences.Editor editor = sp.edit();
                                 //Adding values to editor
-                                editor.putString(MyKey.CELL_SHARED_PREF, cell);
+                                editor.putString(Constant.CELL_SHARED_PREF, cell);
 
                                 //Saving values to editor
                                 editor.commit();
@@ -163,8 +163,8 @@ public class LoginActivity extends AppCompatActivity {
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> params = new HashMap<>();
                     //Adding parameters to request
-                    params.put(MyKey.KEY_CELL, cell);
-                    params.put(MyKey.KEY_PASSWORD, password);
+                    params.put(Constant.KEY_CELL, cell);
+                    params.put(Constant.KEY_PASSWORD, password);
 
                     //returning parameter
                     return params;

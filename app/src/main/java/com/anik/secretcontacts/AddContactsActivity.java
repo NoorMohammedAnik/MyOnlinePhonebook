@@ -56,8 +56,8 @@ public class AddContactsActivity extends AppCompatActivity {
 
         //Fetching cell from shared preferences
         SharedPreferences sharedPreferences;
-        sharedPreferences =getSharedPreferences(MyKey.SHARED_PREF_NAME, Context.MODE_PRIVATE);
-        getUserCell = sharedPreferences.getString(MyKey.CELL_SHARED_PREF, "Not Available");
+        sharedPreferences =getSharedPreferences(Constant.SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        getUserCell = sharedPreferences.getString(Constant.CELL_SHARED_PREF, "Not Available");
 
 
         btnSave.setOnClickListener(new View.OnClickListener() {
@@ -124,7 +124,7 @@ public class AddContactsActivity extends AppCompatActivity {
             loading.setMessage("Please wait....");
             loading.show();
 
-            String URL = MyKey.SAVE_URL;
+            String URL = Constant.SAVE_URL;
 
 
             //Creating a string request
@@ -188,10 +188,10 @@ public class AddContactsActivity extends AppCompatActivity {
                     //Adding parameters to request
 
 
-                    params.put(MyKey.KEY_USER_CELL, getUserCell);
-                    params.put(MyKey.KEY_NAME, name);
-                    params.put(MyKey.KEY_CELL, cell);
-                    params.put(MyKey.KEY_EMAIL, email);
+                    params.put(Constant.KEY_USER_CELL, getUserCell);
+                    params.put(Constant.KEY_NAME, name);
+                    params.put(Constant.KEY_CELL, cell);
+                    params.put(Constant.KEY_EMAIL, email);
 
 
 
